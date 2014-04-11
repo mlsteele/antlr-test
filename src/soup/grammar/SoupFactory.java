@@ -1,4 +1,4 @@
-package grammar;
+package soup.grammar;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CharStream;
@@ -45,7 +45,10 @@ public class SoupFactory {
     }
 
     private static class SoupBuilder extends SoupBaseListener {
-        public void getSoup() {
+        private final ingredients = new List<Ingredient>();
+
+        public Soup getSoup() {
+            return Soup();
         }
     }
 

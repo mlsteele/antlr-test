@@ -1,4 +1,6 @@
-package grammar;
+package soup;
+
+import soup.grammar.SoupFactory;
 
 public class Main {
     public static void main(String[] args) {
