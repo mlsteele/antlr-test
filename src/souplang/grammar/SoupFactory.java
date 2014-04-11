@@ -1,5 +1,6 @@
-package soup.grammar;
+package souplang.grammar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -10,15 +11,15 @@ import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
-import soup.Soup;
-import soup.Soup.Ingredient;
+import souplang.Soup;
+import souplang.Soup.Ingredient;
 
 
 /**
  * Wraps the clean and concise (LOL) ANTLR boilerplate.
  */
 public class SoupFactory {
-    public static void parse(String input) {
+    public static Soup parse(String input) {
         // Create a stream of tokens using the lexer.
         CharStream stream = new ANTLRInputStream(input);
         SoupLexer lexer = new SoupLexer(stream);
@@ -47,14 +48,14 @@ public class SoupFactory {
         walker.walk(listener, tree);
 
         // return the value that the listener created
-        // return listener.getSoup();
+         return listener.getSoup();
     }
 
     private static class SoupBuilder extends SoupBaseListener {
-        private final List<Ingredient> ingredients = new List<Ingredient>();
+        private final List<Ingredient> ingredients = new ArrayList<Ingredient>();
 
         public Soup getSoup() {
-            return new Soup();
+            return new Soup(ingredients);
         }
     }
 }

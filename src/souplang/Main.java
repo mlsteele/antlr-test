@@ -1,6 +1,6 @@
-package soup;
+package souplang;
 
-import soup.grammar.SoupFactory;
+import souplang.grammar.SoupFactory;
 
 public class Main {
     public static void main(String[] args) {

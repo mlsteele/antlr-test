@@ -1,2 +1,2 @@
 all:
-	java -jar antlr.jar src/soup/grammar/Soup.g4
+	java -jar antlr.jar src/souplang/grammar/Soup.g4

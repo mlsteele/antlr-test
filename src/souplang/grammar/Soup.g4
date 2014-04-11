@@ -2,7 +2,7 @@ grammar Soup;
 
 // This puts a Java package statement at the top of the output Java files.
 @header {
-package soup.grammar;
+package souplang.grammar;
 }
 
 // This adds code to the generated lexer and parser.
