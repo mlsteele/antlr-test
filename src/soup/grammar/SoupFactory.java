@@ -1,5 +1,7 @@
 package soup.grammar;
 
+import java.util.List;
+
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -7,6 +9,10 @@ import org.antlr.v4.runtime.RuleContext;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
+
+import soup.Soup;
+import soup.Soup.Ingredient;
+
 
 /**
  * Wraps the clean and concise (LOL) ANTLR boilerplate.
@@ -45,11 +51,10 @@ public class SoupFactory {
     }
 
     private static class SoupBuilder extends SoupBaseListener {
-        private final ingredients = new List<Ingredient>();
+        private final List<Ingredient> ingredients = new List<Ingredient>();
 
         public Soup getSoup() {
-            return Soup();
+            return new Soup();
         }
     }
-
 }
