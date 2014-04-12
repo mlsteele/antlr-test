@@ -37,7 +37,7 @@ public class SoupFactory {
         // System.err.println(tree.toStringTree(parser));
 
         // debugging option #2: show the tree in a window
-        ((RuleContext)tree).inspect(parser);
+        // ((RuleContext)tree).inspect(parser);
 
         // debugging option #3: walk the tree with a listener
         // new ParseTreeWalker().walk(new PrintEverythingListener(), tree);
@@ -53,6 +53,29 @@ public class SoupFactory {
 
     private static class SoupBuilder extends SoupBaseListener {
         private final List<Ingredient> ingredients = new ArrayList<Ingredient>();
+        private String rawingredient;
+        private String modifier;
+
+        @Override
+        public void exitRawingredient(SoupParser.RawingredientContext ctx) {
+            rawingredient = ctx.RAWINGREDIENT().getText();
+        }
+
+        @Override
+        public void exitModifier(SoupParser.ModifierContext ctx) {
+            modifier = ctx.MODIFIER().getText();
+        }
+
+        @Override
+        public void enterIngredient(SoupParser.IngredientContext ctx) {
+            rawingredient = null;
+            modifier = null;
+        }
+
+        @Override
+        public void exitIngredient(SoupParser.IngredientContext ctx) {
+            ingredients.add(new Soup.Ingredient(rawingredient, modifier));
+        }
 
         public Soup getSoup() {
             return new Soup(ingredients);
