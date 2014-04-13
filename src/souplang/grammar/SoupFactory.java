@@ -48,7 +48,7 @@ public class SoupFactory {
         walker.walk(listener, tree);
 
         // return the value that the listener created
-         return listener.getSoup();
+        return listener.getSoup();
     }
 
     private static class SoupBuilder extends SoupBaseListener {
