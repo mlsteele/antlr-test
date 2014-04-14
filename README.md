@@ -5,6 +5,12 @@ parser that works.
 
 It is a silly test parser for a language about soup.
 
+A note about setup:
+Usually to use `antlr.jar` in a project you must add it to your build path.
+To do this in eclipse, right click `antlr.jar` and select "Build Path" -> "Add to Build Path".
+I have already done this for this repo (as evidenced in `/.classpath`), but for other
+projects this is worth remembering.
+
 I don't know much about parsing so there might be parts
 of this that are weird, like building the soup from
 the syntax tree.
